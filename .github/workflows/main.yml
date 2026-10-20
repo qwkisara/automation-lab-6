@@ -1,0 +1,25 @@
+name: Node.js CI
+
+on:
+  push:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Получение файлов
+        uses: actions/checkout@v4
+      - name: Установка Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Установка зависимостей
+        run: npm install --no-audit --no-fund
+      - name: Проверка lodash
+        run: node -e "const _ = require('lodash'); if (_.sum([1, 2, 3]) !== 6) process.exit(1); console.log('Проверка пройдена');"
