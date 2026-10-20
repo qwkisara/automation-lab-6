@@ -1,0 +1,9 @@
+{
+  "name": "automation-lab-6",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Лабораторная работа №6 по автоматизации внедрения ПО",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
